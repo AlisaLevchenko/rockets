@@ -16,6 +16,7 @@ export default function RocketsList({ dragons }) {
               />
               {name}
             </NavLink>
+            <img style={{ width: "250px" }} src={placeholder} alt={`Rocket`} />
           </li>
         ))}
       </ul>
