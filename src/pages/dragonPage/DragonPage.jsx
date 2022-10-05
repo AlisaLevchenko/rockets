@@ -1,13 +1,16 @@
 import React from "react";
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import {
+  // useNavigate,
+  useParams,
+} from "react-router-dom";
 import { setIdRocket } from "../../redux/dragons/DragonsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getFindedRocket } from "../../redux/dragons/DragonsSelector";
 import placeholder from "../../components/images/posterholder.jpg";
 
 export default function DragonPage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const rocket = useSelector(getFindedRocket);
@@ -20,7 +23,7 @@ export default function DragonPage() {
 
   return (
     <div>
-      <button onClick={() => navigate("/")}>Go back</button>
+      {/* <button onClick={() => navigate("/")}>Go back</button> */}
       {rocket && (
         <ul>
           <li>

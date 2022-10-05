@@ -11,6 +11,13 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import dragonsSlice from "./dragons/DragonsSlice";
+import authSlice from "./auth/authSlice";
+
+const authPersistConfig = {
+  key: "token",
+  storage,
+  whitelist: ["idToken"],
+};
 
 const dragonListPersistConfig = {
   key: "rockets",
@@ -26,6 +33,7 @@ const dragonListPersistedReducer = persistReducer(
 
 export const store = configureStore({
   reducer: {
+    auth: persistReducer(authPersistConfig, authSlice),
     rockets: dragonListPersistedReducer,
   },
   middleware: (getDefaultMiddleware) =>

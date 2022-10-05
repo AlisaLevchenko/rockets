@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getRockets } from "./DragonsOperations";
+import { logOut } from "../auth/authSlice";
 
 const dragonsSlice = createSlice({
   name: "rockets",
@@ -26,6 +27,11 @@ const dragonsSlice = createSlice({
     [getRockets.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+    },
+    [logOut]: (state) => {
+      state.isLoading = false;
+      state.activeIdRocket = "";
+      state.error = null;
     },
   },
 });
