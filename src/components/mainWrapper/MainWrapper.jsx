@@ -1,24 +1,25 @@
 import React from "react";
 import { Suspense } from "react";
-import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 import Loader from "../loader/Loader";
 import Navigation from "../navigation/Navigation";
-import { logOut } from "../../redux/auth/authSlice";
+
+import s from "./MainWrapper.module.scss";
 
 export default function MainWrapper() {
-  const dispatch = useDispatch();
-
   return (
     <>
-      <header>
-        <Navigation />
-        <button onClick={() => dispatch(logOut())}> Logout</button>
+      <header className={s.header}>
+        <div className={s.container}>
+          <Navigation />
+        </div>
       </header>
-      <main>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
+      <main className={s.main}>
+        <div className={s.container}>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </div>
       </main>
     </>
   );

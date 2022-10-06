@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRockets } from "../../redux/dragons/DragonsOperations";
 import { getDragons } from "../../redux/dragons/DragonsSelector";
 import RocketsList from "../../components/rocketsList/RocketsList";
+import s from "./HomePage.module.scss";
 
 export default function HomePage() {
   const dragons = useSelector(getDragons);
@@ -15,7 +16,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Rockets models</h1>
+      <h1 className={s.title}>Rockets model</h1>
       <RocketsList dragons={dragons} />
     </div>
   );

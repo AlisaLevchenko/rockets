@@ -1,16 +1,17 @@
 import { NavLink } from "react-router-dom";
 import placeholder from "../../components/images/posterholder.jpg";
 import React from "react";
+import s from "./RocketsList.module.scss";
 
 export default function RocketsList({ dragons }) {
   return (
     <div>
-      <ul>
+      <ul className={s.rocketsList}>
         {dragons.map(({ name, id, flickr_images }) => (
-          <li key={id}>
+          <li key={id} className={s.rocketItem}>
             <NavLink to={`/dragons/${id}`}>
               <img
-                style={{ width: "250px" }}
+                className={s.rocketImage}
                 src={flickr_images ? flickr_images[0] : placeholder}
                 alt={`Rocket`}
               />

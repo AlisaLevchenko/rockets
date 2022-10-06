@@ -1,0 +1,22 @@
+@import "../../sass/variables";
+.header {
+  background-color: var(--light-grey);
+  box-shadow: 0 7px 14px rgba(143, 143, 143, 0.1),
+    0 10px 10px rgba(73, 73, 73, 0.1);
+}
+
+.main {
+  padding-top: 20px;
+}
+
+.container {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 740px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 1260px;
+  }
+}

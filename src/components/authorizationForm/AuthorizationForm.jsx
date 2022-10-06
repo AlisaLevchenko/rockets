@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { signupUser, loginUser } from "../../redux/auth/authOperations";
 import { getOutError } from "../../redux/auth/authSelector";
 import { changeError } from "../../redux/auth/authSlice";
+import s from "./AuthorizationForm.module.scss";
 
 const AuthorizationForm = ({ title }) => {
   const [email, setEmail] = useState("");
@@ -63,36 +64,43 @@ const AuthorizationForm = ({ title }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span>E-mail</span>
+    <div className={s.formWrapper}>
+      <form className={s.authForm} onSubmit={handleSubmit}>
+        <label className={s.authLable}>
+          <span className={s.authText}>E-mail</span>
           <input
+            className={s.authInput}
             type="text"
             name="email"
             placeholder="Enter your e-mail"
             onChange={handleChangeInput}
+            required
           />
         </label>
-        <label>
-          <span>Password</span>
+        <label className={s.authLable}>
+          <span className={s.authText}>Password</span>
           <input
+            className={s.authInput}
             type="text"
             name="password"
             placeholder="Enter your password"
             onChange={handleChangeInput}
+            required
           />
         </label>
-        <button type="submit">{title}</button>
+        <button className={s.authBtn} type="submit">
+          {title}
+        </button>
       </form>
-      <Link
+      <NavLink
+        className={s.authLink}
         to={title === "Sign Up" ? "/login" : "/register"}
         onClick={onLinkClick}
       >
         {title === "Sign Up"
-          ? "Do you have already account? Sign In"
+          ? "Do you already have an account? Sign In"
           : "Don't have an account? Sign Up"}
-      </Link>
+      </NavLink>
     </div>
   );
 };

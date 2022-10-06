@@ -1,0 +1,21 @@
+@import "../../sass/variables";
+
+.authTitle {
+  font-size: 20px;
+  color: var(--accent-color);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .authTitle {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .authTitle {
+    margin-bottom: 25px;
+    font-size: 32px;
+  }
+}
